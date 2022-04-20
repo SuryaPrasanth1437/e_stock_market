@@ -1,0 +1,20 @@
+{
+    "cmpyCode":"SUR123",
+    "cmpyName":"surya tech solutions",
+    "cmpy_Ceo":"surya",
+    "cmpy_turnOver":"10000",
+    "cmpy_website":"https:suryatechsolutionsltd.com",
+    "stckExchange":"NSE",
+    "password" : "surya1235",
+    "confirmPassword" : "surya1235"
+}
+
+/* db.users.createIndex(
+  {
+      "cmpyCode": 1
+  },
+  {
+      unique: true
+      
+  }
+) */
