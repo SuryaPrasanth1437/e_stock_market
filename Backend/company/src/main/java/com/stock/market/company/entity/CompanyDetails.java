@@ -16,7 +16,7 @@ public class CompanyDetails {
 	@Id
 	private String id;
 
-	@Indexed(name = "cmpyCode")
+	@Field(name="cmpyCode")
 	private String companyCode;
 
 	@Field("cmpyName")
