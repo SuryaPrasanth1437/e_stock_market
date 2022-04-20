@@ -1,9 +1,9 @@
 {
     "cmpyCode":"SUR123",
     "cmpyName":"surya tech solutions",
-    "cmpy_Ceo":"surya",
-    "cmpy_turnOver":"10000",
-    "cmpy_website":"https:suryatechsolutionsltd.com",
+    "cmpyCeo":"surya",
+    "cmpyTurnOver":"10000",
+    "cmpyWebsite":"https:suryatechsolutionsltd.com",
     "stckExchange":"NSE",
     "password" : "surya1235",
     "confirmPassword" : "surya1235"
