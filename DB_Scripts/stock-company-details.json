@@ -1,5 +1,5 @@
 {
-    "cmpyCode":"SUR123",
+    "cmpyCode":"SUR1234",
     "cmpyName":"surya tech solutions",
     "cmpyCeo":"surya",
     "cmpyTurnOver":"10000",
@@ -9,7 +9,7 @@
     "confirmPassword" : "surya1235"
 }
 
-/* db.users.createIndex(
+/* db.companyDetails.createIndex(
   {
       "cmpyCode": 1
   },
