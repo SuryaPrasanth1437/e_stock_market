@@ -8,4 +8,6 @@ import com.stock.market.company.entity.CompanyDetails;
 @Repository
 public interface CompanyDetailsRepository extends MongoRepository<CompanyDetails, String>{
 
+	CompanyDetails findByCompanyCode(String companyCode);
+	void deleteByCompanyCode(String companyCode);
 }
