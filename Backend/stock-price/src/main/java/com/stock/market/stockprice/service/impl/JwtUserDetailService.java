@@ -1,4 +1,4 @@
-package com.stock.market.company.service.impl;
+package com.stock.market.stockprice.service.impl;
 
 import java.util.ArrayList;
 
@@ -9,8 +9,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.stock.market.company.entity.UserDetail;
-import com.stock.market.company.repository.UserDetailRepository;
+import com.stock.market.stockprice.entity.UserDetail;
+import com.stock.market.stockprice.repository.UserDetailRepository;
 
 import lombok.extern.log4j.Log4j2;
 

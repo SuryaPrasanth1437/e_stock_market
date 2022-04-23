@@ -1,6 +1,4 @@
-package com.stock.market.company.entity;
-
-import java.util.Date;
+package com.stock.market.stockprice.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,19 +13,13 @@ import lombok.ToString;
 @Setter
 @Builder
 @ToString
-@Document("stockPrices")
-public class Price {
+@Document("userDetail")
+public class UserDetail {
 
 	@Id
 	private String id;
-
-	@Field("cmpyCode")
-	private String companyCode;
-	
-	@Field("stckPrice")
-	private double StckPrice;
-	
-	@Field("creationDate")
-	private Date creationDate;
-
+	@Field("username")
+	private String username;
+	@Field("password")
+	private String password;
 }

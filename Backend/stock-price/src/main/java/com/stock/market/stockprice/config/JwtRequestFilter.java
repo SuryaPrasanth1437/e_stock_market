@@ -1,4 +1,4 @@
-package com.stock.market.company.config;
+package com.stock.market.stockprice.config;
 
 import java.io.IOException;
 import java.util.ArrayList;

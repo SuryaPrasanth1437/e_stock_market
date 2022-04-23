@@ -2,21 +2,15 @@ package com.stock.market.company.controller;
 
 import java.util.Base64;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stock.market.company.config.JwtTokenUtil;
 import com.stock.market.company.dto.JwtResponse;
 import com.stock.market.company.service.impl.JwtUserDetailService;
 
@@ -39,16 +33,13 @@ public class AuthenticationController {
 
 
 	@GetMapping("/authenticate")
-	public Map<String, String> generateAuthenticationToken(@RequestHeader("Authorization") String authHeader)
+	public JwtResponse generateAuthenticationToken(@RequestHeader("Authorization") String authHeader)
 			throws Exception {
 
-		Map<String, String> jwt = new HashMap<String, String>();
 		String username = getUser(authHeader);
 		String token = generateToken(username);
-		UserDetails userDetails = jwtInMemoryUserDetailsService.loadUserByUsername(username);
-		jwt.put("token", token);
-		jwt.put("user", username);
-		return jwt;
+		
+		return new JwtResponse(token, username);
 
 	}
 
@@ -65,11 +56,8 @@ public class AuthenticationController {
 	private String getUser(String authHeader) {
 		log.info("start get user method");
 		String encodeCredentials = authHeader.split(" ")[1];
-		System.out.println(encodeCredentials);
 		byte[] encodedCredentials = Base64.getDecoder().decode(encodeCredentials);
-		System.out.println(encodedCredentials);
 		String user = new String(encodedCredentials).split(":")[0];
-		System.out.println(user);
 		return user;
 	}
 
