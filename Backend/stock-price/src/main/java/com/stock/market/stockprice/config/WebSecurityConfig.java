@@ -44,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		// We don't need CSRF for this example
 		httpSecurity.cors();
-		httpSecurity.csrf().disable().httpBasic().and().authorizeRequests()
+		httpSecurity.csrf().disable().httpBasic().and().authorizeRequests().antMatchers("/actuator/**").permitAll()
 				.anyRequest().authenticated();
 		httpSecurity.addFilter(new JwtRequestFilter(authenticationManager()));
 	}
