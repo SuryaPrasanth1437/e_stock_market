@@ -20,7 +20,7 @@ import com.stock.market.company.service.ICompanyDetailsService;
 
 @RestController
 @RequestMapping("/api/v1.0/market/company")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "/**")
 public class CompanyDetailsController {
 
 	@Autowired
