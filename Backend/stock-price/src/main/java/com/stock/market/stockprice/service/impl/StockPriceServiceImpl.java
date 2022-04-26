@@ -30,6 +30,9 @@ public class StockPriceServiceImpl implements IStockPriceService {
 	private StockPriceRepository stockPriceRepository;
 	@Autowired
 	private MongoTemplate mongoTemplate;
+	
+	@Autowired
+	private KafkaService kafkaService;
 
 	@Transactional
 	public void addStockPrice(PriceDto priceDto, String companyCode) throws ParseException {
@@ -38,6 +41,7 @@ public class StockPriceServiceImpl implements IStockPriceService {
 		Date requiredDate = df.parse(creationDateString);
 		Price price = Price.builder().StckPrice(priceDto.getStckPrice()).companyCode(companyCode)
 				.creationDate(requiredDate).build();
+		kafkaService.send(price);
 		stockPriceRepository.save(price);
 
 	}
