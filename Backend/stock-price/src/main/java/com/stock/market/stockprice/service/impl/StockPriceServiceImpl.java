@@ -42,7 +42,6 @@ public class StockPriceServiceImpl implements IStockPriceService {
 		Price price = Price.builder().StckPrice(priceDto.getStckPrice()).companyCode(companyCode)
 				.creationDate(requiredDate).build();
 		kafkaService.send(price);
-		stockPriceRepository.save(price);
 
 	}
 
