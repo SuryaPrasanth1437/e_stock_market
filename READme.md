@@ -12,3 +12,8 @@ kafka commands
 .\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stock-market
 .\bin\windows\kafka-console-producer.bat --topic stock-market --bootstrap-server localhost:9092
 .\bin\windows\kafka-console-consumer.bat --topic stock-market --from-beginning --bootstrap-server localhost:9092
+
+
+swagger url
+http://localhost:8081/swagger-ui/index.html#/company-details-controller/getCompanyDetailsByCompanyCode
+http://localhost:8082/swagger-ui/index.html#/stock-price-controller/viewStockDetails
