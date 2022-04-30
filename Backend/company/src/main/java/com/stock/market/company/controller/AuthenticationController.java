@@ -19,6 +19,10 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.extern.log4j.Log4j2;
 
+/**
+ * @author Ksp
+ *
+ */
 @RestController
 @RequestMapping("/api/v1.0/market/company")
 @CrossOrigin(origins = "/**")

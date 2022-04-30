@@ -8,7 +8,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
+/**
+ * @author Ksp Entity for userDetail
+ *
+ */
 @Getter
 @Setter
 @Builder

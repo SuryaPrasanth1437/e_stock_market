@@ -15,7 +15,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.stereotype.Component;
 import io.jsonwebtoken.*;
-
+/**
+ * @author Ksp
+ *
+ */
 @Component
 public class JwtRequestFilter extends BasicAuthenticationFilter {
 	@Value("${jwt.secret}")

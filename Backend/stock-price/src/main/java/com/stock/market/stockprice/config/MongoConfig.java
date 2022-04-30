@@ -9,7 +9,10 @@ import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
-
+/**
+ * @author Ksp This method is used to configure mongoDb with spring boot
+ *
+ */
 @Configuration
 public class MongoConfig {
 	/*

@@ -11,7 +11,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import io.micrometer.core.instrument.MeterRegistry;
-
+/**
+ * @author Ksp
+ *
+ */
 @SpringBootApplication
 @EnableEurekaClient
 public class StockPriceApplication {

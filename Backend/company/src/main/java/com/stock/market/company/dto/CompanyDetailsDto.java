@@ -3,6 +3,10 @@ package com.stock.market.company.dto;
 import lombok.Builder;
 import lombok.Getter;
 
+/**
+ * @author Ksp
+ *
+ */
 @Builder
 @Getter
 public class CompanyDetailsDto {

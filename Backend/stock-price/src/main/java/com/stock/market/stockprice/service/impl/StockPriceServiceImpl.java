@@ -22,7 +22,10 @@ import com.stock.market.stockprice.dto.ViewStockPriceDetailsDto;
 import com.stock.market.stockprice.entity.Price;
 import com.stock.market.stockprice.repository.StockPriceRepository;
 import com.stock.market.stockprice.service.IStockPriceService;
-
+/**
+ * @author Ksp
+ *
+ */
 @Service
 public class StockPriceServiceImpl implements IStockPriceService {
 

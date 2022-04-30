@@ -14,6 +14,10 @@ import com.stock.market.company.repository.CompanyDetailsRepository;
 import com.stock.market.company.repository.StockPriceRepository;
 import com.stock.market.company.service.ICompanyDetailsService;
 
+/**
+ * @author Ksp
+ *
+ */
 @Service
 public class CompanyDetailsServiceImpl implements ICompanyDetailsService {
 

@@ -12,7 +12,7 @@ import com.stock.market.stockprice.repository.StockPriceRepository;
 import lombok.extern.log4j.Log4j2;
 
 /**
- * @author Surya Prasanth
+ * @author Ksp This class is used for send and receive kafka message
  *
  */
 @Service
@@ -34,6 +34,11 @@ public class KafkaService {
 		kafkaTemplate.send(kafkaTopic, new Gson().toJson(price));
 	}
 
+	/**
+	 * This method is used to receive message from Kafka and store the message in DB
+	 * 
+	 * @param message
+	 */
 	@KafkaListener(topics = "stock-market", groupId = "id")
 	public void publish(String message) {
 		log.info("Message received from Kafka -{} ", message);

@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 import com.stock.market.company.entity.Price;
 
 
+/**
+ * @author Ksp
+ *
+ */
 @Repository
 public interface StockPriceRepository extends MongoRepository<Price, String> {
 

@@ -5,7 +5,10 @@ import org.springframework.boot.actuate.health.ReactiveHealthIndicator;
 import org.springframework.stereotype.Component;
 
 import reactor.core.publisher.Mono;
-
+/**
+ * @author Ksp
+ *
+ */
 @Component
 public class DownstreamServiceHealthIndicator implements ReactiveHealthIndicator {
 

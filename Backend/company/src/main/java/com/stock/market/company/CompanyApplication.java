@@ -12,6 +12,10 @@ import org.springframework.context.annotation.Bean;
 
 import io.micrometer.core.instrument.MeterRegistry;
 
+/**
+ * @author Ksp
+ *
+ */
 @SpringBootApplication
 @EnableEurekaClient
 public class CompanyApplication {

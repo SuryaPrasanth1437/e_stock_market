@@ -7,6 +7,10 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import lombok.Builder;
 import lombok.Getter;
 
+/**
+ * @author Ksp Entity for userDetail
+ *
+ */
 @Getter
 @Builder
 @Document("userDetail")

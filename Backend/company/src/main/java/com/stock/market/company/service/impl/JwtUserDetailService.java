@@ -14,6 +14,10 @@ import com.stock.market.company.repository.UserDetailRepository;
 
 import lombok.extern.log4j.Log4j2;
 
+/**
+ * @author Ksp
+ *
+ */
 @Service
 @Log4j2
 public class JwtUserDetailService implements UserDetailsService {

@@ -5,7 +5,10 @@ import java.util.Date;
 
 import com.stock.market.stockprice.dto.PriceDto;
 import com.stock.market.stockprice.dto.ViewStockPriceDetailsDto;
-
+/**
+ * @author Ksp
+ *
+ */
 public interface IStockPriceService {
 
 	void addStockPrice(PriceDto price,String companyCode) throws ParseException;

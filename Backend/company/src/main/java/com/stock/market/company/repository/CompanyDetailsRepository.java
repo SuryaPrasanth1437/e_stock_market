@@ -5,6 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.stock.market.company.entity.CompanyDetails;
 
+/**
+ * @author Ksp
+ *
+ */
 @Repository
 public interface CompanyDetailsRepository extends MongoRepository<CompanyDetails, String>{
 
