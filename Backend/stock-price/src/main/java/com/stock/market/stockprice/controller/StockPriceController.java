@@ -17,6 +17,8 @@ import com.stock.market.stockprice.dto.PriceDto;
 import com.stock.market.stockprice.dto.ViewStockPriceDetailsDto;
 import com.stock.market.stockprice.service.IStockPriceService;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * @author Ksp
  *
@@ -24,6 +26,7 @@ import com.stock.market.stockprice.service.IStockPriceService;
 @RestController
 @RequestMapping("/api/v1.0/market/stock")
 @CrossOrigin(origins = "http://localhost:4200")
+@Log4j2
 public class StockPriceController {
 
 	@Autowired
@@ -39,6 +42,7 @@ public class StockPriceController {
 	@PostMapping("/add/{companyCode}")
 	public void addStockPrice(@RequestBody PriceDto price, @PathVariable("companyCode") String companyCode)
 			throws ParseException {
+		log.info("StockPriceController.addStockPrice, request: PriceDto - {}, companyCode - {} ", price, companyCode);
 		stockPriceService.addStockPrice(price, companyCode);
 	}
 
@@ -55,6 +59,8 @@ public class StockPriceController {
 	public ViewStockPriceDetailsDto viewStockDetails(@PathVariable("companyCode") String companyCode,
 			@PathVariable("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startdate,
 			@DateTimeFormat(pattern = "yyyy-MM-dd") @PathVariable("endDate") Date endDate) throws ParseException {
+		log.info("StockPriceController.viewStockDetails, request:  companyCode - {} , startDate - {} , endDate - {} ",
+				companyCode, startdate, endDate);
 		return stockPriceService.viewStockDetails(companyCode, startdate, endDate);
 	}
 }

@@ -18,6 +18,8 @@ import com.stock.market.company.dto.CompanyDetailsDto;
 import com.stock.market.company.entity.CompanyDetails;
 import com.stock.market.company.service.ICompanyDetailsService;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * @author Ksp
  *
@@ -25,6 +27,7 @@ import com.stock.market.company.service.ICompanyDetailsService;
 @RestController
 @RequestMapping("/api/v1.0/market/company")
 @CrossOrigin(origins = "/**")
+@Log4j2
 public class CompanyDetailsController {
 
 	@Autowired
@@ -48,6 +51,7 @@ public class CompanyDetailsController {
 	 */
 	@PostMapping("/register")
 	public void registerCompanyDetails(@Valid @RequestBody CompanyDetails companyDetails) {
+		log.info("CompanyDetailsController.registerCompanyDetails(), request - {}",companyDetails);
 		companyDetailsService.registerCompanyDetail(companyDetails);
 	}
 
@@ -59,8 +63,10 @@ public class CompanyDetailsController {
 	 */
 	@GetMapping("/info/{companyCode}")
 	public CompanyDetailsDto getCompanyDetailsByCompanyCode(@PathVariable("companyCode") String companyCode) {
+		log.info("CompanyDetailsController.getCompanyDetailsByCompanyCode(), request - {}",companyCode);
 		return companyDetailsService.getCompanyDetailsByCompanyCode(companyCode);
 	}
+
 
 	/**
 	 * This method is used to delete the company details
@@ -69,6 +75,7 @@ public class CompanyDetailsController {
 	 */
 	@DeleteMapping("/delete/{companyCode}")
 	public void deleteCompanyDetailsByCompanyCode(@PathVariable String companyCode) {
+		log.info("CompanyDetailsController.deleteCompanyDetailsByCompanyCode(), request - {}",companyCode);
 		companyDetailsService.deleteCompanyDetailsByCompanyCode(companyCode);
 	}
 

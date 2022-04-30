@@ -20,20 +20,21 @@ import org.springframework.util.ObjectUtils;
 import com.stock.market.stockprice.dto.PriceDto;
 import com.stock.market.stockprice.dto.ViewStockPriceDetailsDto;
 import com.stock.market.stockprice.entity.Price;
-import com.stock.market.stockprice.repository.StockPriceRepository;
 import com.stock.market.stockprice.service.IStockPriceService;
+
+import lombok.extern.log4j.Log4j2;
+
 /**
  * @author Ksp
  *
  */
 @Service
+@Log4j2
 public class StockPriceServiceImpl implements IStockPriceService {
 
 	@Autowired
-	private StockPriceRepository stockPriceRepository;
-	@Autowired
 	private MongoTemplate mongoTemplate;
-	
+
 	@Autowired
 	private KafkaService kafkaService;
 
@@ -44,6 +45,7 @@ public class StockPriceServiceImpl implements IStockPriceService {
 		Date requiredDate = df.parse(creationDateString);
 		Price price = Price.builder().StckPrice(priceDto.getStckPrice()).companyCode(companyCode)
 				.creationDate(requiredDate).build();
+		log.info("StockPriceServiceImpl.addStockPrice, Price - {} ", price);
 		kafkaService.send(price);
 
 	}
@@ -63,6 +65,7 @@ public class StockPriceServiceImpl implements IStockPriceService {
 				Criteria.where("creationDate").gte(startDateRequired),
 				Criteria.where("creationDate").lte(endDateRequired)));
 		List<Price> priceList = mongoTemplate.find(query, Price.class);
+		log.debug("StockPriceServiceImpl.viewStockDetails, priceList - {}", priceList);
 		List<Double> stockPriceList = new ArrayList<Double>();
 		if (!priceList.isEmpty()) {
 			for (Price price : priceList) {
@@ -81,6 +84,7 @@ public class StockPriceServiceImpl implements IStockPriceService {
 			viewStockPriceDetailsDto = ViewStockPriceDetailsDto.builder().average(average).min(min).max(max)
 					.stockPriceList(stockPriceList).build();
 		}
+		log.info("StockPriceServiceImpl.viewStockDetails, final response - {}", viewStockPriceDetailsDto);
 		return viewStockPriceDetailsDto;
 	}
 }

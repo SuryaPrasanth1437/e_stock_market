@@ -31,6 +31,7 @@ public class KafkaService {
 	 * @param post
 	 */
 	public void send(Price price) {
+		log.info("sending message to kafka " ,price);
 		kafkaTemplate.send(kafkaTopic, new Gson().toJson(price));
 	}
 
