@@ -84,6 +84,7 @@ public class CompanyDetailsServiceImpl implements ICompanyDetailsService {
 	}
 
 	@Override
+	@Transactional
 	public void deleteCompanyDetailsByCompanyCode(String companyCode) {
 		companyDetailsRepository.deleteByCompanyCode(companyCode);
 		stockPriceRepository.deleteAllByCompanyCode(companyCode);
