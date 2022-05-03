@@ -17,6 +17,7 @@ import com.stock.market.stockprice.dto.PriceDto;
 import com.stock.market.stockprice.dto.ViewStockPriceDetailsDto;
 import com.stock.market.stockprice.service.IStockPriceService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.extern.log4j.Log4j2;
 
 /**
@@ -40,6 +41,7 @@ public class StockPriceController {
 	 * @throws ParseException
 	 */
 	@PostMapping("/add/{companyCode}")
+	@SecurityRequirement(name = "bearerAuth")
 	public void addStockPrice(@RequestBody PriceDto price, @PathVariable("companyCode") String companyCode)
 			throws ParseException {
 		log.info("StockPriceController.addStockPrice, request: PriceDto - {}, companyCode - {} ", price, companyCode);
@@ -56,6 +58,7 @@ public class StockPriceController {
 	 * @throws ParseException
 	 */
 	@GetMapping("/get/{companyCode}/{startDate}/{endDate}")
+	@SecurityRequirement(name = "bearerAuth")
 	public ViewStockPriceDetailsDto viewStockDetails(@PathVariable("companyCode") String companyCode,
 			@PathVariable("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startdate,
 			@DateTimeFormat(pattern = "yyyy-MM-dd") @PathVariable("endDate") Date endDate) throws ParseException {

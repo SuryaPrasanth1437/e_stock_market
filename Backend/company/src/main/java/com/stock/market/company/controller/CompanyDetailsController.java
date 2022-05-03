@@ -18,6 +18,7 @@ import com.stock.market.company.dto.CompanyDetailsDto;
 import com.stock.market.company.entity.CompanyDetails;
 import com.stock.market.company.service.ICompanyDetailsService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.extern.log4j.Log4j2;
 
 /**
@@ -38,6 +39,8 @@ public class CompanyDetailsController {
 	 * 
 	 * @return List<CompanyDetailsDto>
 	 */
+	
+	@SecurityRequirement(name = "bearerAuth")
 	@GetMapping("/getall")
 	public List<CompanyDetailsDto> getAllCompanyList() {
 		return companyDetailsService.getAllCompanyDetailList();
@@ -49,6 +52,7 @@ public class CompanyDetailsController {
 	 * @param companyDetails
 	 * 
 	 */
+	@SecurityRequirement(name = "bearerAuth")
 	@PostMapping("/register")
 	public void registerCompanyDetails(@Valid @RequestBody CompanyDetails companyDetails) {
 		log.info("CompanyDetailsController.registerCompanyDetails(), request - {}",companyDetails);
@@ -62,6 +66,7 @@ public class CompanyDetailsController {
 	 * @return CompanyDetailsDto
 	 */
 	@GetMapping("/info/{companyCode}")
+	@SecurityRequirement(name = "bearerAuth")
 	public CompanyDetailsDto getCompanyDetailsByCompanyCode(@PathVariable("companyCode") String companyCode) {
 		log.info("CompanyDetailsController.getCompanyDetailsByCompanyCode(), request - {}",companyCode);
 		return companyDetailsService.getCompanyDetailsByCompanyCode(companyCode);
@@ -74,6 +79,7 @@ public class CompanyDetailsController {
 	 * @param companyCode
 	 */
 	@DeleteMapping("/delete/{companyCode}")
+	@SecurityRequirement(name = "bearerAuth")
 	public void deleteCompanyDetailsByCompanyCode(@PathVariable String companyCode) {
 		log.info("CompanyDetailsController.deleteCompanyDetailsByCompanyCode(), request - {}",companyCode);
 		companyDetailsService.deleteCompanyDetailsByCompanyCode(companyCode);
