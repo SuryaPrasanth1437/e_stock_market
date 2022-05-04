@@ -27,3 +27,21 @@ kafka commands
 swagger url
 http://localhost:8081/swagger-ui/index.html#/company-details-controller/getCompanyDetailsByCompanyCode
 http://localhost:8082/swagger-ui/index.html#/stock-price-controller/viewStockDetails
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+download sonarqube and run the StartSonar.bat
+
+mvn clean install
+clean org.jacoco:jacoco-maven-plugin:prepare-agent install
+sonar:sonar -Dsonar.login=<authentication token>
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+download kibana, elastic search and logstash
+
+1. changes the security setting to false in elasticsearch.yml and run the elasticsearch.bat
+2. uncomment the host in kibana.yml and run the kibana.bat
+3. add the logstash.conf in bin location and run the logstash from root directory with this command bin\logstash -f .\bin\logstash.conf
+4. run the elasticsearch-create-enrollment-token.bat if needed
