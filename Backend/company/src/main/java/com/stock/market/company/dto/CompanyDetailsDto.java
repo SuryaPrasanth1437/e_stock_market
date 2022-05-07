@@ -25,4 +25,6 @@ public class CompanyDetailsDto {
 	private String stockExchange;
 
 	private double stockPrice;
+	
+	private boolean isHigher;
 }

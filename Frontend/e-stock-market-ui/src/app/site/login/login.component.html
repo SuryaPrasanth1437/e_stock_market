@@ -1,0 +1,63 @@
+<div class="container-fluid col-12 col-md-8 col-lg-5 mt-5 mb-5 login-box">
+    <ul class="list-group text-align-center">
+        <li class="list-group-item">
+            <form class="mt-3 ml-4 mr-4 mb-5" (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+                <h1>Login</h1>
+                <div class="form-row">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="alert alert-info" role="alert" *ngIf="isInvalid">
+                            Invalid Username / Password
+                        </div>
+                        <div class="alert alert-success" role="alert" *ngIf="isLoggedIn">
+                            Logged In Successfully
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-12 col-lg-12">
+                        <label for="username"></label>
+                        <input type="text" class="form-control" placeholder="Enter username" id="username" ngModel
+                            name="username" #username="ngModel" required>
+                        <small class="form-text text-danger">
+                            <div *ngIf="username.touched && !username.valid">Username is required</div>
+                        </small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-12 col-lg-12">
+                        <label for="password"></label>
+                        <input type="password" class="form-control" placeholder="Enter password" id="password" ngModel
+                            name="password" #password="ngModel" required>
+                        <small class="form-text text-danger">
+                            <div *ngIf="password.touched && !password.valid">Password is required</div>
+                        </small>
+                    </div>
+                </div>
+                <div class="form-row mt-3 ">
+        
+                    <div class="col-sm-12 col-lg-12 g-recaptcha" style=" 
+                        transform:scale(1.99);
+                        
+                        -webkit-transform:scale(1.025,1.1);
+                        transform-origin:0 0;
+                        -webkit-transform-origin:0 0;"  > 
+                       <re-captcha name="recaptcha" class="recaptcha" id="recaptcha_area" #recaptcha="ngModel"ngModel required [class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"></re-captcha>
+                    </div>  
+   
+              
+                </div>
+                <div class="form-row mt-4">
+                    <span>
+                        <button type="submit" class="btn btn-danger text-align-left"
+                            [disabled]="!loginForm.valid||loginClicked">
+                            Login
+                        </button>
+                    </span>
+                </div>
+
+            </form>
+        </li>
+
+    </ul>
+
+</div>

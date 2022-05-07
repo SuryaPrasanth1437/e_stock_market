@@ -26,7 +26,7 @@ import lombok.extern.log4j.Log4j2;
  */
 @RestController
 @RequestMapping("/api/v1.0/market/authentication")
-@CrossOrigin(origins = "/**")
+@CrossOrigin( origins = "*")
 @Log4j2
 public class AuthenticationController {
 

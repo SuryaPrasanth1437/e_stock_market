@@ -1,0 +1,30 @@
+.login-box {
+    box-shadow: 10px 10px 5px grey;
+}
+
+re-captcha.is-invalid>div {
+    border: 1px solid #dc3545 !important;
+    border-radius: 0.2rem;
+}
+
+.g-recaptcha-bubble-arrow
+{
+    display: none;
+}
+
+#recaptcha-container
+{
+    transform: scale(0.77); 
+    -webkit-transform: scale(0.77); 
+    transform-origin: 0 0; 
+    -webkit-transform-origin: 0 0;
+}
+
+.g-recaptcha-bubble-arrow + div
+{
+    position: fixed !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}

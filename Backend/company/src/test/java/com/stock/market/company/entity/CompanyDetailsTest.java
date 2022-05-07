@@ -14,9 +14,7 @@ public class CompanyDetailsTest {
 		companyDetails.setCompanyName("abc");
 		companyDetails.setCompanyTurnOver("abc");
 		companyDetails.setCompanyWebsite("abc");
-		companyDetails.setConfirmPassword("abc");
 		companyDetails.setId("1");
-		companyDetails.setPassword("abc");
 		companyDetails.setStockExchange("abc");
 		assertEquals("1", companyDetails.getId());
 		assertEquals("abc", companyDetails.getCompanyCEO());
@@ -25,7 +23,5 @@ public class CompanyDetailsTest {
 		assertEquals("abc", companyDetails.getCompanyTurnOver());
 		assertEquals("abc", companyDetails.getCompanyWebsite());
 		assertEquals("abc", companyDetails.getStockExchange());
-		assertEquals("abc", companyDetails.getPassword());
-		assertEquals("abc", companyDetails.getConfirmPassword());
 	}
 }

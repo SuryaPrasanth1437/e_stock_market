@@ -20,6 +20,7 @@ import org.springframework.util.ObjectUtils;
 import com.stock.market.stockprice.dto.PriceDto;
 import com.stock.market.stockprice.dto.ViewStockPriceDetailsDto;
 import com.stock.market.stockprice.entity.Price;
+import com.stock.market.stockprice.repository.StockPriceRepository;
 import com.stock.market.stockprice.service.IStockPriceService;
 
 import lombok.extern.log4j.Log4j2;
@@ -31,7 +32,8 @@ import lombok.extern.log4j.Log4j2;
 @Service
 @Log4j2
 public class StockPriceServiceImpl implements IStockPriceService {
-
+	@Autowired
+	private StockPriceRepository stockPriceRepository;
 	@Autowired
 	private MongoTemplate mongoTemplate;
 
@@ -44,9 +46,10 @@ public class StockPriceServiceImpl implements IStockPriceService {
 		String creationDateString = df.format(new Date());
 		Date requiredDate = df.parse(creationDateString);
 		Price price = Price.builder().StckPrice(priceDto.getStckPrice()).companyCode(companyCode)
-				.creationDate(requiredDate).build();
+				.creationDate(new Date()).build();
 		log.info("StockPriceServiceImpl.addStockPrice, Price - {} ", price);
-		kafkaService.send(price);
+//		kafkaService.send(price);
+		stockPriceRepository.save(price);
 
 	}
 
@@ -62,8 +65,8 @@ public class StockPriceServiceImpl implements IStockPriceService {
 		Date startDateRequired = df.parse(startDateString);
 		Date endDateRequired = df.parse(endDateString);
 		Query query = new Query(Criteria.where("cmpyCode").is(companyCode).andOperator(
-				Criteria.where("creationDate").gte(startDateRequired),
-				Criteria.where("creationDate").lte(endDateRequired)));
+				Criteria.where("creationDate").gte(startDate),
+				Criteria.where("creationDate").lte(endDate)));
 		List<Price> priceList = mongoTemplate.find(query, Price.class);
 		log.debug("StockPriceServiceImpl.viewStockDetails, priceList - {}", priceList);
 		List<Double> stockPriceList = new ArrayList<Double>();

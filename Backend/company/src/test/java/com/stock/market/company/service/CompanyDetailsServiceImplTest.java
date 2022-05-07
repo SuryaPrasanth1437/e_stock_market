@@ -129,9 +129,7 @@ public class CompanyDetailsServiceImplTest {
 		companyDetails.setCompanyName("abc");
 		companyDetails.setCompanyTurnOver("abc");
 		companyDetails.setCompanyWebsite("abc");
-		companyDetails.setConfirmPassword("abc");
 		companyDetails.setId("1");
-		companyDetails.setPassword("abc");
 		companyDetails.setStockExchange("abc");
 		return companyDetails;
 	}

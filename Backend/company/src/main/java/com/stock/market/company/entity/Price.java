@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 
 /**
  * @author Ksp Entity for price
@@ -15,6 +16,7 @@ import lombok.Getter;
  */
 @Getter
 @Builder
+@ToString
 @Document("stockPrices")
 public class Price {
 

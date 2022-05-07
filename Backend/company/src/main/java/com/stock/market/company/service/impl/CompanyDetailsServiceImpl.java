@@ -44,6 +44,7 @@ public class CompanyDetailsServiceImpl implements ICompanyDetailsService {
 				for (Price price : priceList) {
 					if (price.getCompanyCode().equalsIgnoreCase(company.getCompanyCode())) {
 						stckPrice = price.getStckPrice();
+						break;
 					}
 				}
 				CompanyDetailsDto companyDetailsDto = CompanyDetailsDto.builder().companyCode(company.getCompanyCode())
@@ -71,6 +72,7 @@ public class CompanyDetailsServiceImpl implements ICompanyDetailsService {
 			for (Price price : priceList) {
 				if (price.getCompanyCode().equalsIgnoreCase(companyDetails.getCompanyCode())) {
 					stckPrice = price.getStckPrice();
+					break;
 				}
 			}
 			companyDetailsDto = CompanyDetailsDto.builder().companyCode(companyDetails.getCompanyCode())
