@@ -1,13 +1,44 @@
-<div class="card cards">
+<div class="card cards detail-box">
     <div class="card-body">
         <div class="card-title"><i class="material-icons icons">
                 perm_identity
             </i>
-            <span class="text">{{companyDetailList.companyCode}}</span>
+            <span class="text ">{{companyDetailList.companyCEO}}</span>
 
         </div>
         <hr>
-        
+        <div class="card-title">
+            <i class="material-symbols-outlined icons">
+                apartment
+            </i>
+            <span class="text">{{companyDetailList.companyName}}</span>
+
+        </div>
+        <hr>
+        <div class="card-title">
+            <span class="text ">{{companyDetailList.stockExchange}}</span>
+            <span class="text turnOver "><i class="material-symbols-outlined icons ms-3">
+                unfold_more 
+            </i>  {{companyDetailList.stockPrice|number : '1.2-2'}}</span>
+           
+        </div>
+        <div>
+            <span>
+
+                <button class="btn btn-primary " type="button" [routerLink]="['/view-company-detail',companyDetailList.companyCode]">
+                    <i class="material-symbols-outlined icons blink">
+                        visibility 
+                    </i> VIEW DETAILS
+                </button>
+            </span>
+            <span class="ms-3">
+                <button class="btn btn-danger" type="button" (click)="deleteCompany(companyDetailList.companyCode)">
+                    <i class="material-symbols-outlined icons">
+                        delete 
+                    </i> DELETE
+                </button>
+            </span>
+        </div>
 
     </div>
 

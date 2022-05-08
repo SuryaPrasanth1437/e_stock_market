@@ -6,7 +6,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
@@ -21,7 +20,7 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
  *
  */
 @SpringBootApplication
-@EnableEurekaClient
+//@EnableEurekaClient
 @OpenAPIDefinition(info = @Info(title = "Company Details", version = "v3"))
 @SecurityScheme(
     name = "bearerAuth",

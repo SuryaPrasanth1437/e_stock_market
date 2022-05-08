@@ -1,0 +1,85 @@
+<div class="container-fluid col-12 col-md-8 col-lg-5 mt-2 mb-3">
+    <ul class="list-group text-align-center">
+        <li class="list-group-item">
+            <form class="mt-3 ml-4 mr-4 mb-3" [formGroup]="viewCompanyForm">
+                <h1>View Company Detail</h1>
+                <div class="form-row ">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="form-group ">
+                            <label for="companyCode" class="register-text">Company Code</label>
+                            <input type="text" class="form-control mt-1 " placeholder="Enter your Company Code"
+                                id="companyCode" formControlName="companyCode" readonly required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="form-group mt-1">
+                            <label for="companyName" class="register-text">Company Name</label>
+                            <input type="text" class="form-control mt-1" placeholder="Enter your Company Name"
+                                id="companyName" formControlName="companyName" readonly required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row ">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="form-group mt-1">
+                            <label for="companyCEO" class="register-text">Company CEO</label>
+                            <input type="text" class="form-control mt-1" placeholder="Enter Company CEO" id="companyCEO"
+                                formControlName="companyCEO" readonly required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row ">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="form-group mt-1">
+                            <label for="companyTurnOver" class="register-text"> Company TurnOver</label>
+                            <input type="text" class="form-control mt-1" pattern="^[1-9][0-9]*$" oninput="if(!this.value.match('^[1-9][0-9]*$'))this.value='';" placeholder="Enter your Company TurnOver"
+                                id="companyTurnOver" formControlName="companyTurnOver" readonly minlength="9" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="form-group mt-1">
+                            <label for="companyWebsite" class="register-text">Company Website</label>
+                            <input type="text" class="form-control mt-1" placeholder="Enter your Company Website"
+                                id="companyWebsite" formControlName="companyWebsite" readonly required>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-row" >
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="form-group mt-1">
+                            <label for="stockExchange" class="register-text">Stock Exchange</label>
+                            <input type="text" class="form-control mt-1" placeholder="Enter your Stock Exchange"
+                                id="stockExchange" formControlName="stockExchange" readonly required>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-row" >
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="form-group mt-1">
+                            <label for="stockPrice" class="register-text">Stock Price</label>
+                            <input type="text" class="form-control mt-1" placeholder="Enter your Stock Price"
+                                id="stockPrice" formControlName="stockPrice" readonly required>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-row mt-2">
+                    <span>
+                        <button type="submit" class="btn btn-info text-align-left button-text" [routerLink]="['/get-all-detail']"
+                            >
+                            Back to Previous Page
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </li>
+    </ul>
+</div>

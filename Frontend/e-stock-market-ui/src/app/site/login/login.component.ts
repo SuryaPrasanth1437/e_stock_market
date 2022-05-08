@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   onSubmit(form: NgForm) {
     console.log(form);
     console.log("form value", form.value);
-    console.log("login id", form.value.loginId);
+    console.log("login id", form.value.username);
     this.companyService.login(form.value).subscribe({
       next: (v) => {
         this.isLoggedIn = true;
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
        
         setTimeout(() => {
           this.isLoggedIn = false;
-          this.router.navigate(['/tweet']);
+          this.router.navigate(['/get-all-detail']);
         }, 2000);
       },
       error: (error) => {

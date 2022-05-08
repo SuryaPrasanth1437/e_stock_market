@@ -7,11 +7,14 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto  mb-2 mb-lg-0">
           <li class="nav-item ps-5" *ngIf="isLoggedIn()">
-            <a class="nav-link text" >search</a>
+            <a class="nav-link text menu" routerLink="register" >REGISTER</a>
+          </li>
+          <li class="nav-item ps-5" *ngIf="isLoggedIn()">
+            <a class="nav-link text menu" routerLink="search"  >SEARCH</a>
           </li>
         </ul>
         <div class="d-flex" *ngIf="isLoggedIn()">
-          <button class="btn btn-outline-success text" >logout</button>
+          <button class="btn btn-outline-success text menu"  routerLink="login" >LOGOUT</button>
         </div>
       </div>
     </div>

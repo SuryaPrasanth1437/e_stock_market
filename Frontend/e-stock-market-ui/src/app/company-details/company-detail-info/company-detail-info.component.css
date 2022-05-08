@@ -1,0 +1,49 @@
+.icons {
+    vertical-align: middle;
+}
+
+.text {
+    font-weight: bold;
+    padding-left: 10px;
+    text-transform: capitalize;
+}
+
+.turnOver {
+    margin-left: 75px;
+}
+
+.detail-box {
+
+    box-shadow: 10px 10px 5px grey;
+
+}
+
+.cards:hover{
+
+    box-shadow: 3px 4px 4px 1px #e9ecef;
+    transform: scale(1.1);
+}
+
+.cards{
+
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  button:hover{
+    transform: scale(1.1);
+  }
+  .blink {
+    animation: blink 2s steps(5, start) infinite;
+    -webkit-animation: blink 1s steps(5, start) infinite;
+  }
+  @keyframes blink {
+    to {
+      visibility: hidden;
+    }
+  }
+  @-webkit-keyframes blink {
+    to {
+      visibility: hidden;
+    }
+  }

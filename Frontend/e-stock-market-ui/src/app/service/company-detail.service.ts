@@ -32,6 +32,18 @@ export class CompanyDetailService {
   }
 
   getAllCompanyDetails(): Observable<CompanyDetailBean[]> {
-    return this.httpClient.get<CompanyDetailBean[]>(this.companyApiUrl  + "/company/getall");
+    return this.httpClient.get<CompanyDetailBean[]>(this.companyApiUrl + "/company/getall");
+  }
+
+  registerCompanyDetail(CompanyDetailBean: CompanyDetailBean): Observable<any> {
+    return this.httpClient.post<void>(this.companyApiUrl + "/company/register", CompanyDetailBean);
+  }
+
+  viewCompanyDetails(companyCode: String): Observable<CompanyDetailBean> {
+    return this.httpClient.get<CompanyDetailBean>(this.companyApiUrl + "/company/info/" + companyCode);
+  }
+
+  deleteCompanyDetail(companyCode: String): Observable<any> {
+    return this.httpClient.delete<void>(this.companyApiUrl + "/company/delete/"+companyCode);
   }
 }

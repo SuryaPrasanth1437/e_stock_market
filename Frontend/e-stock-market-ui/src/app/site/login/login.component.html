@@ -2,7 +2,7 @@
     <ul class="list-group text-align-center">
         <li class="list-group-item">
             <form class="mt-3 ml-4 mr-4 mb-5" (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
-                <h1>Login</h1>
+                <h1>LOGIN</h1>
                 <div class="form-row">
                     <div class="col-sm-12 col-lg-12">
                         <div class="alert alert-info" role="alert" *ngIf="isInvalid">
@@ -50,7 +50,7 @@
                     <span>
                         <button type="submit" class="btn btn-danger text-align-left"
                             [disabled]="!loginForm.valid||loginClicked">
-                            Login
+                            LOGIN
                         </button>
                     </span>
                 </div>

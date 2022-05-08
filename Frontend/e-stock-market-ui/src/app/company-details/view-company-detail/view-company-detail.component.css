@@ -1,0 +1,13 @@
+.register-text {
+    font-weight: bold;
+    padding-left: 10px;
+    text-transform: capitalize;
+}
+
+button:hover{
+    transform: scale(1.1);
+}
+
+.button-text{
+    font-weight: bold;
+}

@@ -11,10 +11,14 @@ import { RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings, RecaptchaV3Mo
 import { environment } from 'src/environments/environment';
 import { CompanyDetailComponent } from './company-details/company-detail/company-detail.component';
 import { CompanyDetailInfoComponent } from './company-details/company-detail-info/company-detail-info.component';
+import { RegisterCompanyComponent } from './company-details/register-company/register-company.component';
+import { ViewCompanyDetailComponent } from './company-details/view-company-detail/view-company-detail.component';
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: LoginComponent },
-  {path:'get-all-detail',component:CompanyDetailComponent}
+  {path:'get-all-detail',component:CompanyDetailComponent},
+  {path:'register',component:RegisterCompanyComponent},
+  { path: 'view-company-detail/:companyCode', component: ViewCompanyDetailComponent },
 ]
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ export const routes: Routes = [
     HeaderComponent,
     LoginComponent,
     CompanyDetailComponent,
-    CompanyDetailInfoComponent
+    CompanyDetailInfoComponent,
+    RegisterCompanyComponent,
+    ViewCompanyDetailComponent,
   ],
   imports: [
     BrowserModule,

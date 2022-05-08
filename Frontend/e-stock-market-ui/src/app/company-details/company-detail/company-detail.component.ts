@@ -9,6 +9,7 @@ import { CompanyDetailBean } from '../companyDetailBean';
 export class CompanyDetailComponent implements OnInit {
   "companyDetails": CompanyDetailBean[];
   "companyDetailList": CompanyDetailBean[]
+  "isRemoved": boolean;
   constructor(private companyDetailService: CompanyDetailService) { }
 
   ngOnInit(): void {
@@ -22,6 +23,19 @@ export class CompanyDetailComponent implements OnInit {
       }
 
     });
+  }
+
+  deleteComapny(companyCode: String) {
+    console.log("companyCode for delete ", companyCode);
+    this.companyDetailService.deleteCompanyDetail(companyCode).subscribe({
+      next: (data) => {
+        this.isRemoved = true
+        setTimeout(() => {
+          this.isRemoved = false;
+          this.ngOnInit();
+        }, 2000);
+      }
+    })
   }
 
 }
