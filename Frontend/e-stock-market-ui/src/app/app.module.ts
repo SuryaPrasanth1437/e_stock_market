@@ -13,12 +13,15 @@ import { CompanyDetailComponent } from './company-details/company-detail/company
 import { CompanyDetailInfoComponent } from './company-details/company-detail-info/company-detail-info.component';
 import { RegisterCompanyComponent } from './company-details/register-company/register-company.component';
 import { ViewCompanyDetailComponent } from './company-details/view-company-detail/view-company-detail.component';
+import { AddStockPriceComponent } from './stocks/add-stock-price/add-stock-price.component';
+import { ViewStocksComponent } from './stocks/view-stocks/view-stocks.component';
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: LoginComponent },
-  {path:'get-all-detail',component:CompanyDetailComponent},
-  {path:'register',component:RegisterCompanyComponent},
+  { path: 'get-all-detail', component: CompanyDetailComponent },
+  { path: 'register', component: RegisterCompanyComponent },
   { path: 'view-company-detail/:companyCode', component: ViewCompanyDetailComponent },
+  { path: 'add-stock-price/:companyCode', component: AddStockPriceComponent }
 ]
 @NgModule({
   declarations: [
@@ -29,6 +32,8 @@ export const routes: Routes = [
     CompanyDetailInfoComponent,
     RegisterCompanyComponent,
     ViewCompanyDetailComponent,
+    AddStockPriceComponent,
+    ViewStocksComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,7 @@ export const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     RecaptchaFormsModule,
-   RecaptchaModule,
+    RecaptchaModule,
     RecaptchaV3Module,
     RouterModule.forRoot(routes)
   ],
@@ -48,7 +53,7 @@ export const routes: Routes = [
         siteKey: environment.recaptcha.siteKey,
       } as RecaptchaSettings,
     },
-   
+
   ],
   bootstrap: [AppComponent]
 })

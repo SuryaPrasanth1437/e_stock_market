@@ -18,26 +18,35 @@
         <div class="card-title">
             <span class="text ">{{companyDetailList.stockExchange}}</span>
             <span class="text turnOver "><i class="material-symbols-outlined icons ms-3">
-                unfold_more 
-            </i>  {{companyDetailList.stockPrice|number : '1.2-2'}}</span>
-           
+                    unfold_more
+                </i> {{companyDetailList.stockPrice|number : '1.2-2'}}</span>
+
         </div>
         <div>
             <span>
 
-                <button class="btn btn-primary " type="button" [routerLink]="['/view-company-detail',companyDetailList.companyCode]">
+                <button class="btn btn-primary " type="button"
+                    [routerLink]="['/view-company-detail',companyDetailList.companyCode]">
                     <i class="material-symbols-outlined icons blink">
-                        visibility 
+                        visibility
                     </i> VIEW DETAILS
                 </button>
             </span>
             <span class="ms-3">
                 <button class="btn btn-danger" type="button" (click)="deleteCompany(companyDetailList.companyCode)">
                     <i class="material-symbols-outlined icons">
-                        delete 
+                        delete
                     </i> DELETE
                 </button>
             </span>
+        </div>
+        <hr>
+        <div class ="d-flex justify-content-center">
+            <button class="btn btn-primary " type="button"
+                [routerLink]="['/add-stock-price',companyDetailList.companyCode]">
+                ADD Stock Price
+            </button>
+
         </div>
 
     </div>
