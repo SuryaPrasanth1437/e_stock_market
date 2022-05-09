@@ -25,6 +25,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { DatePipe } from '@angular/common';
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: LoginComponent },
@@ -76,6 +77,7 @@ export const routes: Routes = [
         siteKey: environment.recaptcha.siteKey,
       } as RecaptchaSettings,
     },
+    DatePipe,
 
   ],
   bootstrap: [AppComponent]
