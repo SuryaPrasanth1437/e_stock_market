@@ -1,0 +1,22 @@
+.searchbar {
+    color: #000000;
+}
+
+.searchBox {
+    width: 1000px;
+}
+
+button:hover{
+    transform: scale(1.1);
+}
+
+
+.register-text {
+    font-weight: bold;
+    padding-left: 10px;
+    text-transform: capitalize;
+}
+
+.icons {
+    vertical-align: middle;
+}
