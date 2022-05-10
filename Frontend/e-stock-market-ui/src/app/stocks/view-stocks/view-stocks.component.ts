@@ -5,6 +5,8 @@ import { ThemePalette } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { StockPriceService } from 'src/app/service/stock-price.service';
+import { CompanyDetailService } from 'src/app/service/company-detail.service';
+import { CompanyDetailBean } from 'src/app/company-details/companyDetailBean';
 @Component({
   selector: 'app-view-stocks',
   templateUrl: './view-stocks.component.html',
@@ -16,6 +18,7 @@ export class ViewStocksComponent implements OnInit {
   "startDateFinal":any;
   "endDateFinal":any;
   "submit":boolean;
+  "companyDetailsList": CompanyDetailBean[];
 
   public "date": moment.Moment;
   public "disabled" = true;
@@ -33,9 +36,18 @@ export class ViewStocksComponent implements OnInit {
   public color: ThemePalette = 'primary';
 
 
-  constructor(private datePipe: DatePipe, private stockPriceService: StockPriceService, private route: ActivatedRoute) { }
+  constructor(private companyDetailService:CompanyDetailService,private datePipe: DatePipe, private stockPriceService: StockPriceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.companyDetailService.getAllCompanyDetails().subscribe({
+      next: (data: any) => {
+        this.companyDetailsList = data;
+      },
+      error: (error: any) => {
+        console.log("error" + JSON.stringify(error));
+      }
+
+    });
     this.viewStockPrice = new FormGroup({
       "companyCode": new FormControl(null, [Validators.required]),
       "endDate": new FormControl(null, [Validators.required]),

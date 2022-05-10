@@ -8,9 +8,17 @@
                 <div class="form-row ">
                     <div class="col-sm-12 col-lg-12">
                         <div class="form-group ">
-                            <label for="companyCode" class="d-flex justify-content-center mt-1 register-text">Company Code</label>
-                            <input type="text" class="form-control mt-1 " placeholder="companyCode" id="search"
-                                formControlName="companyCode" required>
+                            <label for="companyCode" class="d-flex justify-content-center mt-1 register-text">Company
+                                Code</label>
+                            <!-- <input type="text" class="form-control mt-1 " placeholder="companyCode" id="search"
+                                formControlName="companyCode" required> -->
+                                <div class="d-flex justify-content-center mt-1 register-text">
+                            <select formControlName="companyCode" placeholder="Choose a company code" class="custom-dropdown">
+                                <option value=""></option>
+                                <option *ngFor="let companyDetails of companyDetailsList"
+                                    [ngValue]="companyDetails.companyCode">{{companyDetails.companyCode}}</option>
+                            </select>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -91,7 +99,8 @@
                     <div class="form-row ">
                         <div class="col-sm-12 col-lg-12">
                             <div class="form-group ">
-                                <label for="average" class="d-flex justify-content-center mt-1 register-text">Average {{startDateFinal}} - {{endDateFinal}}</label>
+                                <label for="average" class="d-flex justify-content-center mt-1 register-text">Average
+                                    {{startDateFinal}} - {{endDateFinal}}</label>
                                 <input type="text" class="form-control mt-1 " placeholder="average" id="search"
                                     formControlName="average" readonly>
                             </div>

@@ -20,3 +20,8 @@ button:hover{
 .icons {
     vertical-align: middle;
 }
+
+.custom-dropdown{
+    height:auto;
+    width: 100%;
+}
