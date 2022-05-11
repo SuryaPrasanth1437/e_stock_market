@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../User';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CompanyDetailBean } from '../company-details/companyDetailBean';
 
 @Injectable({
@@ -12,6 +12,7 @@ export class CompanyDetailService {
   private companyApiUrl = environment.baseUrl;
   "isLoggedIn": boolean;
   "loginId": string;
+  "token":string;
 
   constructor(private httpClient: HttpClient) { }
   getLogInStatus() {
@@ -19,6 +20,14 @@ export class CompanyDetailService {
   }
   setlogInStatus(login: boolean) {
     this.isLoggedIn = login;
+  }
+
+  setToken(token: string){
+    this.token=token;
+  }
+
+  getToken(){
+    return this.token;
   }
 
   getLoginId() {
@@ -32,18 +41,43 @@ export class CompanyDetailService {
   }
 
   getAllCompanyDetails(): Observable<CompanyDetailBean[]> {
-    return this.httpClient.get<CompanyDetailBean[]>(this.companyApiUrl + "/company/getall");
+    
+    const httpOptions={
+      headers: new HttpHeaders({
+        "Content-Type":"application/json",
+        "Authorization": "Bearer " + this.getToken()
+      })
+    }
+    return this.httpClient.get<CompanyDetailBean[]>(this.companyApiUrl + "/company/getall",httpOptions);
   }
 
   registerCompanyDetail(CompanyDetailBean: CompanyDetailBean): Observable<any> {
-    return this.httpClient.post<void>(this.companyApiUrl + "/company/register", CompanyDetailBean);
+    const httpOptions={
+      headers: new HttpHeaders({
+        "Content-Type":"application/json",
+        "Authorization": "Bearer " + this.getToken()
+      })
+    }
+    return this.httpClient.post<void>(this.companyApiUrl + "/company/register", CompanyDetailBean,httpOptions);
   }
 
   viewCompanyDetails(companyCode: String): Observable<CompanyDetailBean> {
-    return this.httpClient.get<CompanyDetailBean>(this.companyApiUrl + "/company/info/" + companyCode);
+    const httpOptions={
+      headers: new HttpHeaders({
+        "Content-Type":"application/json",
+        "Authorization": "Bearer " + this.getToken()
+      })
+    }
+    return this.httpClient.get<CompanyDetailBean>(this.companyApiUrl + "/company/info/" + companyCode,httpOptions);
   }
 
   deleteCompanyDetail(companyCode: String): Observable<any> {
-    return this.httpClient.delete<void>(this.companyApiUrl + "/company/delete/"+companyCode);
+    const httpOptions={
+      headers: new HttpHeaders({
+        "Content-Type":"application/json",
+        "Authorization": "Bearer " + this.getToken()
+      })
+    }
+    return this.httpClient.delete<void>(this.companyApiUrl + "/company/delete/"+companyCode,httpOptions);
   }
 }

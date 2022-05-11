@@ -28,6 +28,8 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.isInvalid = false;
         this.loginClicked = true;
+        console.log("v ",v)
+        this.companyService.setToken(v.token);
         this.companyService.setlogInStatus(this.isLoggedIn);
         this.companyService.setLoginId(form.value.username);
        
