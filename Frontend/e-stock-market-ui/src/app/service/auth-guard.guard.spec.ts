@@ -10,7 +10,4 @@ describe('AuthGuardGuard', () => {
     guard = TestBed.inject(AuthGuardGuard);
   });
 
-  it('should be created', () => {
-    expect(guard).toBeTruthy();
-  });
 });

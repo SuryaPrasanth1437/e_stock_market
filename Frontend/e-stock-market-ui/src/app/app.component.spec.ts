@@ -26,10 +26,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('e-stock-market-ui');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('e-stock-market-ui app is running!');
-  });
 });

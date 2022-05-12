@@ -19,7 +19,5 @@ describe('AddStockPriceComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  
 });

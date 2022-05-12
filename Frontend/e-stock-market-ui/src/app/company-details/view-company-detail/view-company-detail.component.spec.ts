@@ -19,7 +19,5 @@ describe('ViewCompanyDetailComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+
 });
