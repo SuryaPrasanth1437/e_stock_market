@@ -48,7 +48,7 @@ export class AddStockPriceComponent implements OnInit {
           this.stockFailAdd = false;
 
         }, 2000);
-        this.stockFailAdd = true;
+
       }
     })
   }
