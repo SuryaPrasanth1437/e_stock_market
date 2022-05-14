@@ -50,7 +50,7 @@ export class RegisterCompanyComponent implements OnInit {
   }
   restrictZero(event: any) {
     console.log(event)
-    if (event.target.value.lenght == 0 && event.key == '0') {
+    if (event.target.value.length == 0 && event.key == '0') {
       event.preventDefault();
     }
   }
